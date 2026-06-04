@@ -30,7 +30,7 @@ trap 'echo "[ERROR] Error occurred at $BASH_SOURCE:$LINENO command: $BASH_COMMAN
 if [[ $ACCUMULO_VERSION =~ ^1\..*$ ]]; then
   print_to_console "Accumulo 1 is not supported; use an earlier uno or a newer accumulo"
   exit 1
-elif [[ $ACCUMULO_VERSION =~ ^2\.[0-1]\.[0-3]$ ]]; then
+elif [[ $ACCUMULO_VERSION =~ ^2\.[0-1]\..*$ ]]; then
   "$ACCUMULO_HOME"/bin/accumulo init --clear-instance-name --instance-name "$ACCUMULO_INSTANCE" --password "$ACCUMULO_PASSWORD"
   "$ACCUMULO_HOME"/bin/accumulo-cluster start
 else
